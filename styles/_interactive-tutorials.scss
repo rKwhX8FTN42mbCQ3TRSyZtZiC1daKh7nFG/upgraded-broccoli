@@ -1,0 +1,56 @@
+/* Interactive blocks in tutorial contents ---------------------------------- */
+
+/* I don't get it, but apparently setting padding or border on
+   .interactive-block breaks the fixed-header anchor fix.
+   So the visual styles go on this inner div.
+*/
+.interactive-block-inner {
+  border: 1px dashed $purple;
+  padding: 10px;
+  margin: 5px;
+}
+
+.interactive-block-ui > button {
+  margin: 10px 0;
+}
+
+.interactive-block .breadcrumbs-wrap {
+  margin-bottom: 11px;
+}
+
+.interactive-block .breadcrumb-item {
+  margin-top: 6px;
+}
+
+.interactive-block .breadcrumb-item a {
+  text-decoration: none;
+}
+
+.interactive-block .breadcrumb-item.current a {
+  font-weight: bold;
+}
+
+.interactive-block .breadcrumb-item.active a {
+  color: $blue-purple-300;
+}
+
+.interactive-block .breadcrumb-item.disabled a {
+  color: $gray-600;
+}
+
+.interactive-block .breadcrumb-item.done a:after {
+  content: "\f058"; /* fontawesome check-circle icon */
+  font-family: FontAwesome;
+  color: $secondary;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.interactive-block .waiting-for-tx {
+  word-break: break-word;
+}
+
+.ws-console {
+  height: 200px;
+  overflow: auto;
+}

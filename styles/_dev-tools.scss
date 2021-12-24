@@ -1,0 +1,101 @@
+/* Dev Tool styles stuff ---------------------------------------------------- */
+
+#tx-sender-history .list-group-item {
+  font-size: small;
+  color: $gray-600;
+}
+
+.response-metadata .timestamp {
+  color: $gray-600;
+  position: relative;
+  top: 16px;
+}
+
+.throbber {
+  width: 24px;height:24px;
+}
+
+#connection-status .card-body {
+  border-left: 0;
+}
+
+#connection-status-item.active {
+  background-color: $success;
+  border-color: $success;
+}
+
+#tx-sender-history ul {
+  overflow: auto;
+  height: 220px;
+  border: 1px solid $gray-200;
+}
+
+#pp_progress small {
+  margin-top: .5rem; // Fix "Getting ready to send..." position
+}
+
+.page-tx-sender .input-group .form-control {
+  flex: 1 1 20%;
+}
+
+.bootstrap-growl {
+  max-width: 90vw !important;
+  overflow: hidden;
+}
+
+.list-group-item-danger,
+#tx-sender-history .list-group-item-danger {
+  background-color: $magenta-300;
+  color: $black;
+
+  a {
+    color: $black;
+
+    &:hover {
+      color: $black;
+      text-decoration: underline;
+    }
+  }
+}
+
+
+#rest_url_wrapper p {
+  margin: 0;
+  border-radius: 4px;
+  // $code-bg and $code-padding are from _code-tabs.scss
+  background-color: $code-bg;
+  padding: $code-padding;
+  overflow: auto;
+}
+
+#rest_url {
+  width: auto;
+  border: 0;
+  background: none;
+  font-size:13px;
+  vertical-align: top;
+
+  .editable {
+    color: $white;
+    font-weight: bold;
+    font-family: $font-family-monospace;
+    border-width: 0 0px 1px 0;
+    border-style: dotted;
+    border-color: $gray-200;
+    min-width: 5em;
+    background: none;
+    vertical-align: top;
+  }
+
+ .non_editable {
+    vertical-align: top;
+  }
+
+  div {
+    display: inline-block;
+  }
+
+  input {
+    margin: 0 !important;
+  }
+}

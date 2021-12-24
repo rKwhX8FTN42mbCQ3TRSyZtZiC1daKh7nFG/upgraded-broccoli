@@ -1,0 +1,208 @@
+/* Landing Pages ------------------------------------------------------------ */
+.landing {
+
+  .container-fluid.section-hero {
+    padding: 48px 0;
+  }
+
+  .content .children-display li a {
+    /* Category landing pages */
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-decoration: none;
+  }
+
+  .content .children-display li a:hover {
+    text-decoration: underline;
+  }
+
+
+  /* Common list modules (children, curated links) -------------------------- */
+
+  .level-1,
+  .level-2{
+    margin-top: 0;
+  }
+
+  .curated-links ul,
+  .curated-links ol,
+  .children-display ul {
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  .card .curated-links a:hover,
+  .card .children-display a:hover {
+    text-decoration: none;
+  }
+
+  .card .level-1 a,
+  .card .curated-links li a {
+    padding: 8px;
+    display: block;
+    margin: 0 -8px 0 -8px;
+  }
+
+  .card .level-2 {
+    position: relative;
+  }
+  .card .level-2 a {
+    padding: 8px 8px 8px 28px;
+    display: block;
+    margin: 0 -8px 0 -8px;
+  }
+
+  .card .blurb + .children-display,
+  .card .blurb + .curated-links {
+    margin-top: 1rem;
+  }
+
+  .section-hero .blurb {
+    font-size: 1.2em;
+    line-height: 1.71em;
+  }
+
+  .doc-index { // "All Pages" listings
+    .level-1 {
+      list-style-type: disc;
+      margin-left: 1rem;
+    }
+    .level-2 {
+      list-style-type: circle;
+      margin-left: 2rem;
+    }
+    .level-3 {
+      list-style-type: square;
+      margin-left: 3rem;
+    }
+    .level-4 {
+      list-style-type: disc;
+      margin-left: 4rem;
+    }
+    .level-5 {
+      margin-left: 5rem;
+      list-style-type: circle;
+    }
+    .level-6 {
+      margin-left: 6rem;
+      list-style-type: square;
+    }
+  }
+
+
+  /* Misc. ------------------------------------------------------------------ */
+
+  @include media-breakpoint-down(md) {
+    .card {
+      padding-left: 0px;
+    }
+  }
+
+  .display-4 {
+    margin-bottom: 1.5rem;
+  }
+
+  #test-net-servers h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .card-header h3.card-title {
+    margin-bottom: 0;
+  }
+
+  #test-net-servers pre {
+    overflow-x: auto;
+  }
+
+  .card li {
+    list-style-type: none;
+    margin-left: 0;
+  }
+
+  section:first-of-type {
+    padding-top: 0;
+    border-top-width: 0;
+  }
+
+  .card-header,
+  .card-footer {
+    background: none;
+    border-bottom: none;
+    border-top: none;
+  }
+
+  .card-header {
+    padding: 8px;
+  }
+
+  .card-footer {
+    padding: 8px;
+  }
+
+  .card-body > p {
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+
+  #main_content_wrapper {
+    border-bottom: none;
+  }
+
+  .marketing-wrapper {
+    margin-top: 10rem;
+    margin-bottom: 6rem;
+    @include media-breakpoint-down(sm) {
+      margin-top: 6rem;
+    }
+  }
+
+
+  .card .card-img-top {
+    width: 60px;
+    height: 60px;
+    margin-left: 0;
+    margin-right: auto;
+  }
+  .image-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 16px;
+  }
+
+  /* Full-link cards */
+  a.card {
+    border: 1px solid transparent;
+  }
+  a.card:hover {
+    text-decoration: none;
+  }
+  a.card:hover h3 {
+    text-decoration: underline;
+  }
+
+}
+
+// Alert banners
+.alert-info {
+  color: white;
+  background-color: $blue-700;
+  border-width: 0;
+
+  a {
+    text-decoration: underline;
+    color: white;
+
+    &:hover {
+      color: $gray-200;
+    }
+  }
+}
+// ad-hoc callout for NFT standards
+.highlight-subcard {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 2px solid $white;
+  background: $dropdown-bg;
+}

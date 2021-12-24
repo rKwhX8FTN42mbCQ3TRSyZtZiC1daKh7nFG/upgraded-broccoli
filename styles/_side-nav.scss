@@ -1,0 +1,189 @@
+/* Left/right nav fonts & colors scheme ------------------------------------- */
+aside li a {
+  color: $white;
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+aside .sidenav_cat_title {
+  color: $white;
+}
+aside a:hover,
+aside .sidenav_cat_title:hover {
+  color: $primary;
+}
+
+aside a.active,
+aside a.active:hover,
+aside .active > a,
+aside .active > a:hover {
+  color: $primary;
+  font-weight: 700;
+}
+aside a.active-parent,
+aside .active-parent > a {
+  font-weight: 700;
+}
+
+.page-toc .level-1 a,
+.command-list .separator {
+  font-weight: 700;
+  font-family: "Space Mono", monospace;
+  color: $white;
+}
+
+/* Left navigation -----------------------------------------------------------*/
+
+.nav-toggler {
+  position: absolute;
+  @include caret(down);
+  width: 1.75em;
+  height: 1.75em;
+  line-height: 0;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+
+  &::after {
+    transition-duration: 0.3s;
+  }
+  &.collapsed::after {
+    transform: rotate(-90deg);
+  }
+}
+
+.dactyl-tree-nav {
+  padding: 44px 24px 48px 0;
+  position: relative;
+
+  nav {
+    margin-left: 1rem;
+    padding-left: 0;
+    border-left: 1px solid $white;
+
+    .nav-link:hover,
+    .nav-link:active {
+      border-left: 1px solid $primary;
+      margin-left: -1px;
+    }
+
+    .active > .nav-link, {
+      border-left: 2px solid $primary;
+      margin-left: -1px;
+      padding-left: calc(1rem - 1px);
+    }
+  }
+
+  .nav-item {
+    position: relative;
+
+    .nav-link {
+      padding: 0.25rem 1rem;
+      font-size: 0.9rem;
+    }
+    &.nav-parent .nav-link {
+      padding-left: 0;
+      font-size: 1.125rem;
+    }
+
+    .nav-toggler + .nav-link {
+      padding-left: 2rem;
+    }
+  }
+
+  > .nav-item {
+    padding: .5rem 0;
+    font-size: 1.125rem;
+
+    > .nav-link {
+      font-weight: bold;
+    }
+  }
+
+  .collapsing.nav {
+    // Fix for weird folding behavior in collapse animation.
+    flex-wrap: unset;
+  }
+}
+
+
+/* Right navigation --------------------------------------------------------- */
+
+.right-sidebar {
+  padding: 44px 0 24px 48px;
+
+  .toc-header {
+    font-weight: bold;
+    font-size: 14px;
+    padding: 1rem 0;
+
+    h4 {
+      line-height: 20px;
+      font-size: 1.2em;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+#page-toc-wrapper {
+  position: sticky;
+  max-height: 85vh;
+  top: 48px;
+  overflow: auto;
+  padding: 0;
+  border: none;
+
+  .card-body {
+    padding: 0;
+    list-style-type: none;
+  }
+}
+
+.page-toc,
+.command-list {
+  padding-left: 0;
+  border-left: 1px solid $white;
+
+  li {
+    list-style-type: none;
+    padding: 0;
+
+    &.separator {
+      padding: .25rem 1rem;
+    }
+
+    a {
+      display: block;
+      margin-top: 5px;
+      padding: .25rem 1rem;
+      font-size: 0.9rem;
+
+      &:hover,
+      .active {
+        text-decoration: none;
+        border-left: 1px solid $primary;
+        margin-left: -1px;
+      }
+    }
+
+    &.active a,
+    &.active a:hover {
+      border-left: 2px solid $primary;
+      padding-left: calc(1rem - 1px);
+      margin-left: -1px;
+    }
+  }
+
+  .level-3 {
+    margin-left: 16px;
+    border-left: 1px solid $white;
+    margin-bottom: 0;
+    padding-bottom: 5px;
+
+    a {
+      margin-top: 0;
+      padding-bottom: 5px;
+    }
+  }
+
+}

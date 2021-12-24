@@ -1,0 +1,348 @@
+body {
+  position: relative; // Makes scrollspy work better
+}
+
+section {
+  position: relative;
+}
+
+// Landings can be borderless full-width so bg images can touch the edges
+.landing {
+  padding: 0;
+}
+
+// Normally-padded pages
+.padded-landing,
+.sidebar-primary #main_content_wrapper {
+  /* Mobile first */
+  padding: 0 1rem 1rem 1rem;
+  @include media-breakpoint-up(md) {
+    padding: 0 2rem 2rem 2rem;
+  }
+  @include media-breakpoint-up(lg) {
+    padding: 0 3rem 3rem 3rem;
+  }
+}
+
+// Square blocks ---------------------------------------------------------------
+
+.square {
+  position: relative;
+  flex-basis: calc(50% - 30px); // Mobile
+  margin: 15px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  border-radius: $border-radius-lg;
+
+  &::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    flex-basis: calc(25% - 30px);
+  }
+
+  &-50 {
+    flex-basis: calc(50% - 30px);
+    @include media-breakpoint-down(sm) {
+      flex-basis: calc(50% - 20px);
+    }
+  }
+}
+
+// Card Grid styles ------------------------------------------------------------
+
+.card-grid {
+  display: grid;
+  gap: 1px;
+  padding: 0;
+
+  &.card-grid-2x2 {
+    /* left half is a hero area; right half is a 2x2 grid. */
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto auto;
+
+    .section-hero {
+      grid-row-end: span 2;
+    }
+
+    @include media-breakpoint-down(md) {
+      /* Switch to 1-column layout on smaller widths */
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(5, auto);
+    }
+  }
+
+  &.card-grid-2x1 {
+    /* left half is a hero area; right half is a 2x1 grid. */
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    .section-hero {
+      grid-row-end: span 1;
+    }
+
+    @include media-breakpoint-down(md) {
+      /* Switch to 1-column layout on smaller widths */
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &.card-grid-2x4 {
+    /* left half is a hero area; right half is a 2x4 grid. Total grid is 4x4 */
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
+    .section-hero {
+      grid-row-end: span 4;
+    }
+
+    @include media-breakpoint-down(md) {
+      /* Switch to 1-column layout on smaller widths */
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(5, auto);
+
+      .section-hero {
+        grid-row-end: span 1;
+      }
+    }
+  }
+
+  &.card-grid-4xN {
+    /* 4 equal columns and any number of auto-sized rows. */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: auto;
+
+    /* No "hero" blocks expected here. */
+
+    @include media-breakpoint-down(md) {
+      /* Switch to 1-column layout on smaller widths */
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &.card-grid-3xN {
+    /* 3 equal columns and any number of auto-sized rows. */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: auto;
+
+    /* No "hero" blocks expected here. */
+
+    @include media-breakpoint-down(md) {
+      /* Switch to 1-column layout on smaller widths */
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &.card-grid-Nx1 {
+    /* 1 row of equal sized columns */
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    grid-template-rows: auto;
+
+    /* No "hero" blocks expected here. */
+
+    @include media-breakpoint-down(md) {
+      /* Switch to 1-column layout on smaller widths */
+      grid-auto-flow: row;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .card {
+    padding: 40px;
+    border: 0;
+
+    @include media-breakpoint-down(md) {
+      padding: 20px;
+    }
+
+    .card-body {
+      padding: 8px;
+      padding-bottom: 24px;
+    }
+  }
+
+  &.section-hero {
+    padding-left: 0;
+  }
+
+}
+
+/* Grid Box Vertical numbers ------------------------------------------------ */
+.flag-vertical {
+  color: $gray-200;
+  position: absolute;
+  top: 2em;
+  right: 3em;
+  width: 20px;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+  font-size: 0.833em;
+  letter-spacing: 2px;
+}
+
+// Misc. layout styles ---------------------------------------------------------
+.xrp-ledger-dev-portal.sidebar-primary .main {
+  z-index: 5;
+  padding: 44px 24px 48px;
+  min-height: 700px;
+}
+
+
+.doc-index {
+  padding: 48px 0;
+}
+
+@include media-breakpoint-down(md) {
+  .landing .card-grid .card,
+  .landing .card-grid .card-body,
+  .landing .card-grid .card-header {
+    padding-left: 0;
+  }
+  .landing .doc-index {
+    padding-left: 0;
+  }
+}
+
+/* Responsive design for different viewscreens ------------------------------ */
+
+@include media-breakpoint-down(md) {
+
+  .right-sidebar .card {
+    padding-left: 0;
+  }
+
+  #page-toc-wrapper {
+    position: static;
+    display: block;
+    clear: both;
+    overflow-y: inherit;
+    max-width: 100%;
+    max-height: inherit;
+    word-break: break-all;
+  }
+  .main {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    overflow: hidden;
+  }
+}
+@media (max-width: 480px) {
+  html {
+    overflow-x: hidden !important;
+  }
+}
+@media (max-width: 400px) {
+  .navbar .navbar-brand .brand-text {
+    margin-right: 0;
+    letter-spacing: -0.08rem;
+  }
+  .navbar .navbar-brand {
+    margin-right: 0;
+  }
+  .navbar .navbar-brand .logo {
+    margin-right: 0;
+    margin-left: -1rem;
+  }
+
+  .btn {
+    white-space: normal;
+  }
+}
+
+
+/* TIMELINE */
+.timeline-wrapper {
+    z-index: 999;
+    position: relative;
+}
+.timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 18px;
+    height: 102.5%;
+    width: 4px;
+    background: linear-gradient(180deg, rgba(254, 255, 1, 1) 0%, rgba(255, 45, 154, 1) 33%, rgba(163, 8, 143, 1) 66%, rgba(44, 4, 128, 0.85) 100%);
+ }
+
+.timeline-dot {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: $black;
+  box-sizing: border-box;
+}
+
+.timeline-block:first-child .timeline-dot {
+  border: 3px solid $yellow-500;
+}
+
+.timeline-block:nth-child(2) .timeline-dot {
+  border: 3px solid $orange-400;
+}
+.timeline-block:nth-child(3) .timeline-dot {
+  border: 3px solid $red-purple-600;
+}
+.timeline-block {
+    display: flex;
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-content {
+  flex-grow: 1;
+  position: relative;
+  margin-left: 1.25em;
+}
+
+.timeline h4 {
+  margin-top: -4px;
+}
+
+@include media-breakpoint-up(md) {
+  .timeline:before {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+  .timeline-dot {
+    -ms-flex-order: 1;
+    order: 1;
+    margin-left: calc(5% - 9px);
+    will-change: transform;
+  }
+  .timeline-block:nth-child(even) {
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+  .timeline-dot {
+    margin-right: calc(5% - 9px);
+  }
+  .timeline-content {
+     width: 45%;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    will-change: transform;
+    margin: 0;
+    --line-height-multiplier: 1.2;
+  }
+}
