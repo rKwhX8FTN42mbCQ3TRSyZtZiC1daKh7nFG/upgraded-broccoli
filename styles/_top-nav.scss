@@ -1,0 +1,314 @@
+/* Top navigation ----------------------------------------------------------- */
+.top-nav {
+  margin: 20px 4px 0 4px;
+
+  // Logo
+  .navbar-brand {
+    text-decoration: none;
+    white-space: pre;
+    -webkit-transition: opacity 200ms ease, color 200ms ease;
+    transition: opacity 200ms ease, color 200ms ease;
+
+    &:hover {
+      opacity: 0.75;
+    }
+
+    @include media-breakpoint-down(md) {
+      img {
+        width: 120px;
+      }
+    }
+  }
+
+  // Main Links ----------------------------------------------------------------
+  .navbar-nav {
+    .nav-link {
+      color: $white;
+      font-size: 1rem;
+      line-height: 52px;
+      text-decoration: none;
+
+      &:hover {
+        background-color: transparent;
+        box-shadow: inset 0 -1px 0 0 #000;
+        text-decoration: none;
+      }
+
+      &.active a {
+        font-weight: 700;
+        box-shadow: inset 0 -1px 0 0 #000;
+      }
+      &.active-parent a {
+        font-weight: 700;
+        box-shadow: inset 0 -1px 0 0 #000;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      @include media-breakpoint-only(lg) {
+        padding: 1rem 1.15rem;
+
+        &.github-edit {
+          padding-left: 40px;
+        }
+      }
+    }
+    // Buttons in top nav
+    .btn-outline-secondary {
+      font-size: 14px;
+      line-height: 125%;
+      margin-top: 1rem;
+    }
+    @include media-breakpoint-down(md) {
+      .wrap-button {
+        padding: 1.5rem 0;
+
+        .btn {
+          display: inline;
+          padding: 1rem 1.25rem;
+        }
+      }
+    }
+  }
+
+
+  // Dropdowns -----------------------------------------------------------------
+  // (Mobile first)
+  .dropdown-toggle {
+    position: relative;
+  }
+  .dropdown-toggle::after {
+    position: absolute;
+    border-color: $gray-500 transparent transparent transparent;
+    border-width: 8px 5px 0 5px;
+    top: 40%;
+    left: auto;
+  }
+  .dropdown.show {
+    .dropdown-toggle {
+      color: $gray-500;
+    }
+    .dropdown-toggle::after {
+      border-color: $primary transparent transparent transparent;
+    }
+  }
+  .dropdown-menu {
+    border-width: 0;
+
+    .dropdown-item {
+      line-height: 262%;
+      padding: 0 .875rem;
+
+      &.top-level-2 {
+        padding-left: 2rem
+      }
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+  // Desktop version
+  @include media-breakpoint-up(lg) {
+    .dropdown-toggle::after {
+      border-width: 0;
+      top: 80%;
+      left: 50%;
+    }
+
+    .dropdown-toggle.with-caret::after {
+      position: relative;
+      top: 4px;
+      left: 0;
+      border-top: 8px solid $primary;
+      border-right: 5px solid transparent;
+      border-left: 5px solid transparent;
+      border-bottom: 0;
+      transition: 0.2s;
+    }
+
+    .dropdown.show .dropdown-toggle.with-caret::after {
+      transform: scaleY(-1);
+    }
+
+    .dropdown.show .dropdown-toggle {
+      color: $gray-500;
+      position: relative;
+    }
+
+    .dropdown.show .dropdown-toggle:not(.with-caret)::after,
+    .dropdown-toggle:not(.with-caret):hover::after {
+      content: " ";
+      display: static;
+      border: 3px solid $primary;
+      border-radius: 50%;
+      font-size: 0;
+      height: 0;
+      width: 0;
+    }
+
+    .dropdown-menu {
+      border-width: 1px;
+      backdrop-filter: blur(8px);
+      border-radius: $border-radius-lg;
+      padding: 0.5rem 0.75rem;
+      min-width: 250px;
+
+      &.smaller-dropdown {
+        min-width: unset;
+      }
+
+      .dropdown-item {
+        line-height: 44px;
+      }
+    }
+  }
+
+  // Search bar & controls -----------------------------------------------------
+  #navbar-search {
+    .input-group-text,
+    .input-group > .input-group-append > .btn {
+      color: $white;
+      background-color: transparent;
+      border-width: 0;
+    }
+    .algolia-autocomplete {
+      flex-grow: 1;
+    }
+
+    #topsearchbox:focus {
+      box-shadow: none;
+      border-color: $white;
+    }
+
+    @include media-breakpoint-up(lg) { // Desktop search styling ---------------
+      position: static; // allows search bar to be positioned screen-center
+      .dropdown-toggle {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        padding: 0;
+        border-radius: $border-radius-lg;
+        width: 640px;
+        left: calc(50% - 320px);
+        background-color: $gray-900;
+      }
+
+      .input-group {
+        width: 100%;
+      }
+
+      #topsearchbox {
+        line-height: 24px;
+        height: 100%;
+        width: 100%;
+
+        &:not(:focus) {
+          border-right: 1px solid black;
+        }
+      }
+    }
+    @include media-breakpoint-down(md) { // Mobile search styling --------------
+      .form-inline label {
+        margin-bottom: 0;
+
+        .input-group-text {
+          line-height: 24px;
+        }
+      }
+
+      .dropdown-menu { // search box is always expanded
+        display: block;
+        position: static;
+        background-color: transparent;
+        border: 0 none;
+        box-shadow: none;
+        margin-top: 0;
+        width: 100%;
+      }
+
+      .dropdown-toggle { // no dropdown to expand search
+        display: none;
+      }
+
+    }
+
+    // Algolia Search results --------------------------------------------------
+    .algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"] {
+      background-color: rgba(0,0,0,0.9);
+      border: 1px solid $gray-900;
+      border-radius: $border-radius-lg;
+    }
+    .algolia-autocomplete .ds-dropdown-menu::before {
+      background-color: rgba(0,0,0,0.9);
+      border-color: $gray-900;
+    }
+    .algolia-docsearch-suggestion {
+      background-color: rgba(0,0,0,0.9);
+    }
+    .algolia-autocomplete .algolia-docsearch-suggestion--category-header {
+      color: $white;
+      border: 0 solid $secondary;
+      border-bottom-width: 1px;
+      font-weight: bold;
+    }
+
+    .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
+      color: $white;
+    }
+
+    .algolia-autocomplete .algolia-docsearch-suggestion--title {
+      color: $white;
+    }
+
+    .algolia-autocomplete .algolia-docsearch-suggestion--text {
+      font-size: 0.8rem;
+      color: $gray-200;
+    }
+
+    .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+      color: $white;
+      background-color: $green-800;
+    }
+
+    @include media-breakpoint-down(md) {
+      .algolia-autocomplete .ds-dropdown-menu {
+        min-width: unset;
+      }
+    }
+  }
+
+  // Mobile --------------------------------------------------------------------
+  @include media-breakpoint-down(md) {
+    .navbar-brand {
+      padding-left: 15px;
+    }
+    .navbar-toggler {
+      border: 0;
+      padding: 0;
+
+      &:not(.collapsed) {
+        // Hack: turn white hamburger to approximately $green
+        filter: brightness(0.5) sepia(1) saturate(5000%) hue-rotate(114deg) brightness(1.96) saturate(87%);
+      }
+    }
+
+    .navbar-nav .nav-link {
+      line-height: 150%;
+    }
+
+    .github-edit-wrap .github-edit.nav-link {
+      background-image: unset;
+      padding-left: inherit;
+    }
+
+  }
+
+  // Language toggle -----------------------------------------------------------
+  .language-selector {
+    font-size: 0.875rem;
+  }
+}

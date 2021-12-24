@@ -1,0 +1,10 @@
+
+/* Reduce external link icon size */
+.fa.fa-external-link:before {
+  font-size: 80%;
+}
+
+.external-link .fa-external-link,
+.related-projects a .fa-external-link {
+  padding-left: 3px;
+}
