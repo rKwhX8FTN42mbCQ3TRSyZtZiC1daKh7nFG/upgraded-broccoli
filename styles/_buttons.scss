@@ -1,0 +1,123 @@
+// Button styling --------------------------------------------------------------
+
+.btn, .content a.button, .content .btn {
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s;
+  padding: 0.5rem 1rem;
+  line-height: 16px;
+}
+
+.content a.button {
+  padding: .5rem 1rem;
+  margin: 0 0.5rem;
+  display: inline-block;
+}
+
+.btn.disabled,
+button.disabled,
+.btn[disabled="disabled"],
+button[disabled="disabled"] {
+  cursor: not-allowed;
+}
+
+.btn-primary code,
+.btn-secondary code {
+  color: inherit;
+}
+
+.btn-primary {
+  background: $blue-purple-500;
+  font-weight: bold;
+  color: $white;
+  border: none;
+  border-color: transparent;
+  &:hover {
+    background: $blue-purple-600;
+  }
+}
+
+.btn-arrow {
+  @include media-breakpoint-down(sm) {
+    display: block;
+    width: 100%;
+  }
+  &::after {
+    display: inline-block;
+    content: url(../img/icons/arrow-right.svg);
+    vertical-align: middle;
+    padding-left: 8px;
+    -webkit-transition: transform 0.3s ease-out;
+    -moz-transition: transform 0.3s ease-out;
+    -ms-transition: transform 0.3s ease-out;
+    -o-transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+  }
+  &:hover {
+    background: $blue-purple-600 !important;
+    border: none;
+    &::after {
+      -webkit-transform: translateX(4px);
+      -moz-transform: translateX(4px);
+      -ms-transform: translateX(4px);
+      -o-transform: translateX(4px);
+      transform: translateX(4px);
+    }
+  }
+}
+
+/* (Jump to) "Top" button */
+
+.jump-to-top {
+  display: none;
+  position: fixed;
+  bottom: 36px;
+  right: 36px;
+  font-weight: 700;
+  z-index: 1000;
+
+  &::after {
+    display: none;
+  }
+}
+
+.accordian-row {
+  background: $gray-800;
+  border-radius: 5px;
+  padding: 32px;
+  h3 {
+    a {
+      position: relative;
+      padding-right: 2rem;
+      &:hover {
+        color: $white;
+      }
+      // &::after {
+      //   -webkit-transition: transform 0.3s ease-out;
+      //   -moz-transition: transform 0.3s ease-out;
+      //   -ms-transition: transform 0.3s ease-out;
+      //   -o-transition: transform 0.3s ease-out;
+      //   transition: transform 0.3s ease-out;
+      //   transform: rotateX(180deg);
+      //   position: absolute;
+      //   right: -32px;
+      //   top: calc(50% - 12px);
+      //   display: inline-flex;
+      //   content: url(../../img/icons/purple-arrow.svg);
+      // }
+      // &.collapsed {
+      //   &::after {
+      //     transform: rotateX(360deg);
+      //   }
+      // }
+    }
+  }
+
+  .chevron {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+}

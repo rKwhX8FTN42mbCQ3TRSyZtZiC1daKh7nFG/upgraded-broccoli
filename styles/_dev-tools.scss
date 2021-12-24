@@ -1,0 +1,77 @@
+/* Dev Tool styles stuff ---------------------------------------------------- */
+
+#tx-sender-history .list-group-item {
+  font-size: small;
+  color: $gray-600;
+}
+
+.response-metadata .timestamp {
+  color: $gray-600;
+  position: relative;
+  top: 16px;
+}
+
+.throbber {
+  width: 24px;height:24px;
+}
+
+#connection-status .card-body {
+  border-left: 0;
+}
+
+#connection-status-item.active {
+  background-color: $success;
+  border-color: $success;
+}
+
+.api-input-area .btn-group > .send-request.btn {
+  // This button is part of a toolbar with a loader animation, which causes the
+  // right edges to not be rounded even though the loader is usually invisible.
+  // So, this forces the button's corners to be consistently rounded.
+  border-bottom-right-radius: $border-radius-sm;
+  border-top-right-radius: $border-radius-sm;
+}
+
+#tx-sender-history ul {
+  overflow: auto;
+  height: 220px;
+  border: 1px solid $gray-200;
+}
+
+#pp_progress small {
+  margin-top: .5rem; // Fix "Getting ready to send..." position
+}
+
+.page-tx-sender .input-group .form-control {
+  flex: 1 1 20%;
+  height: auto;
+}
+
+.bootstrap-growl {
+  max-width: 90vw !important;
+  overflow: hidden;
+}
+
+.list-group-item-danger,
+#tx-sender-history .list-group-item-danger {
+  background-color: $magenta-300;
+  color: $black;
+
+  a {
+    color: $black;
+
+    &:hover {
+      color: $black;
+      text-decoration: underline;
+    }
+  }
+}
+
+
+.rpc-tool .main {
+  h1::before, h2::before, h3::before {
+    // These aren't anchors, and the placement of the anchor fix thing
+    // causes things above them to be unclickable
+    display: none;
+  }
+}
