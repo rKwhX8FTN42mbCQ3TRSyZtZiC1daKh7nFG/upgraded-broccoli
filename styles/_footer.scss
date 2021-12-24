@@ -1,0 +1,40 @@
+/* Footer ------------------------------------------------------------------- */
+
+.xrpl-footer {
+  padding: 7.5rem 2rem;
+
+  @include media-breakpoint-up(lg) {
+    background-image: url(../img/backgrounds/footer.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+  }
+
+  @include media-breakpoint-down(md) {
+    .col-lg:not(:first-child) {
+      margin-top: 4rem;
+    }
+  }
+
+  h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $gray-400;
+  }
+
+  .nav-link {
+    padding: .75rem 0;
+    line-height: 1;
+  }
+
+  .absolute-bottom-footer {
+    font-size: 10px;
+    line-height: 1rem;
+
+    @include media-breakpoint-down(md) {
+      .copyright-license {
+        margin-top: 3rem;
+      }
+    }
+  }
+}

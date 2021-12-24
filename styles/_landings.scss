@@ -1,0 +1,199 @@
+/* Landing Pages ------------------------------------------------------------ */
+.landing {
+
+  .container-fluid.section-hero {
+    padding: 48px 0;
+  }
+
+  .content .children-display,
+  .content .curated-links {
+    > ul > li {
+      margin-top: 24px;
+    }
+
+    li a {
+      /* Category landing pages */
+      font-weight: 700;
+      font-size: 1.25rem;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .level-1,
+  .level-2{
+    margin-top: 0;
+  }
+
+  .curated-links ul,
+  .curated-links ol,
+  .children-display ul {
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  .section-hero .blurb {
+    font-size: 1.2em;
+    line-height: 1.71em;
+  }
+
+  .doc-index { // "All Pages" listings
+    .level-1 {
+      list-style-type: disc;
+      margin-left: 1rem;
+    }
+    .level-2 {
+      list-style-type: circle;
+      margin-left: 2rem;
+    }
+    .level-3 {
+      list-style-type: square;
+      margin-left: 3rem;
+    }
+    .level-4 {
+      list-style-type: disc;
+      margin-left: 4rem;
+    }
+    .level-5 {
+      margin-left: 5rem;
+      list-style-type: circle;
+    }
+    .level-6 {
+      margin-left: 6rem;
+      list-style-type: square;
+    }
+  }
+
+  p a,
+  h5 a {
+    color: $blue-purple-400;
+    font-weight: 600;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  /* Misc. ------------------------------------------------------------------ */
+
+  .display-4 {
+    margin-bottom: 1.5rem;
+  }
+
+  #test-net-servers h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  #test-net-servers pre {
+    overflow-x: auto;
+  }
+
+  // .card li {
+  //   list-style-type: none;
+  //   margin-left: 0;
+  // }
+
+  section:first-of-type {
+    // padding-top: 0;
+    border-top-width: 0;
+  }
+
+  // .card-header,
+  // .card-footer {
+  //   background: none;
+  //   border-bottom: none;
+  //   border-top: none;
+  // }
+
+
+  #main_content_wrapper {
+    border-bottom: none;
+  }
+
+  .marketing-wrapper {
+    margin-top: 10rem;
+    margin-bottom: 6rem;
+    @include media-breakpoint-down(sm) {
+      margin-top: 6rem;
+    }
+  }
+
+  // In-body nav blocks - show as a table with → arrows
+  .nav {
+    .nav-link {
+      padding: 1rem 2rem 1rem 0;
+      color: $gray-200;
+      border-bottom: 1px solid $gray-800;
+      position: relative;
+
+      &:hover {
+        color: $purple;
+      }
+
+      &:not(.external-link)::after {
+        content: " ";
+        background-image: url(../img/icons/arrow-right-purple.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 1rem;
+        position: absolute;
+        right: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+        transition: all .2s ease;
+      }
+      &:not(.external-link):hover::after {
+        animation: arrowDance2 1.2s infinite;
+      }
+
+      &.external-link::after {
+        content: " ";
+        background-image: url(../img/icons/arrow-up-right.svg);
+        background-repeat: no-repeat;
+        position: absolute;
+        background-position: center;
+        background-size: .75rem;
+        right: 7px;
+        width: 1.5rem;
+        height: 1.5rem;
+        transition: all .2s ease;
+      }
+
+      &.external-link:hover::after {
+        animation: arrowDanceDiag 1.2s infinite;
+      }
+    }
+  }
+
+  .card-body .nav .nav-link {
+    // These already have a background of $gray-800, so the border needs to be
+    // lighter.
+    border-bottom: 1px solid $gray-600;
+  }
+}
+
+// Alert banners
+.alert-info {
+  color: white;
+  background-color: $blue-700;
+  border-width: 0;
+
+  a {
+    text-decoration: underline;
+    color: white;
+
+    &:hover {
+      color: $gray-200;
+    }
+  }
+}
+// ad-hoc callout for NFT standards
+.highlight-subcard {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 2px solid $white;
+  background: $dark;
+}
