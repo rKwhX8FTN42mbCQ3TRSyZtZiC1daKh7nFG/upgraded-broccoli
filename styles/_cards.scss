@@ -1,0 +1,131 @@
+.card, .cta-card, .q-wrapper {
+  box-shadow: $dropdown-box-shadow;
+}
+
+.card-body > p,
+.card-body > p:not(:last-child) {
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+/* Full-link cards */
+a.card {
+  border: 0;
+  color: $white;
+}
+a.card:hover,
+a:hover .card-new {
+  text-decoration: none;
+}
+a.card:hover h3 {
+  text-decoration: underline;
+}
+
+.circled-logo {
+  background-color: $gray-600;
+  border-radius: 50%;
+  padding: .75rem;
+  width: 50px;
+  height: 50px;
+  img {
+    width: 26px;
+    height: 26px;
+    display: inline-block; // fix sizing in Chrome
+  }
+  margin-bottom: 0.75rem;
+}
+
+.card-deck {
+  margin-top: 2.5rem;
+  margin-left: (-$card-deck-margin);
+  margin-right: (-$card-deck-margin);
+  margin-bottom: 5rem;
+  flex-grow: 1;
+
+  @include media-breakpoint-up(lg) {
+    margin-top: 5rem;
+  }
+
+  .card {
+    flex-grow: 0;
+    flex-basis: 100%;
+    margin: 0 $card-deck-margin (4 * $card-deck-margin) $card-deck-margin;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &.row-cols-1 .card {
+    flex-basis: 100%;
+    // Give cards some breathing room (but not in the 2×2 ones)
+    min-height: 264px;
+    @include media-breakpoint-up(md) {
+      min-height: 347px;
+    }
+  }
+
+  &.row-cols-lg-3 {
+    @include media-breakpoint-up(xl) {
+      // Double the card deck margin on larger desktops
+      margin-left: (-2 * $card-deck-margin);
+      margin-right: (-2 * $card-deck-margin);
+    }
+    .card {
+      @include media-breakpoint-up(lg) {
+        flex-basis: calc(33% - #{(2 * $card-deck-margin)} );
+      }
+      @include media-breakpoint-up(xl) {
+        margin: 0 (2 * $card-deck-margin) (4 * $card-deck-margin) (2 * $card-deck-margin);
+        flex-basis: calc(33% - #{(4 * $card-deck-margin)} );
+      }
+    }
+  }
+
+  &.row-cols-lg-4 .card {
+    @include media-breakpoint-up(lg) {
+      flex-basis: calc(25% - #{(2 * $card-deck-margin)} );
+    }
+  }
+
+  a.card {
+    transition: all 0.35s ease-out;
+    cursor: pointer;
+    &:hover {
+      -webkit-transform: translateY(-16px);
+      -moz-transform: translateY(-16px);
+      -ms-transform: translateY(-16px);
+      -o-transform: translateY(-16px);
+      transform: translateY(-16px);
+    }
+  }
+
+  .card-footer {
+    font-size: 0;
+    padding: 1rem;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top: 0;
+  }
+
+  @include media-breakpoint-down(md) {
+    margin-top: 2rem;
+
+    .card-body {
+      padding: 1rem;
+    }
+    &.row-cols-1 .card {
+      margin: .75rem .75rem (4 * $card-deck-margin) .75rem;
+      max-width: calc(100% - 1.5rem);
+    }
+    &.row-cols-2 .card {
+      margin: .75rem;
+      max-width: calc(50% - 1.5rem);
+    }
+  }
+}
+
+.cta-card {
+  text-align: center;
+  background-color: $gray-800;
+}
