@@ -1,0 +1,119 @@
+/* TABLE STYLING */
+
+.content table {
+  clear: right;
+  margin-bottom: 48px;
+}
+
+.content table code {
+  word-break: normal;
+  white-space: nowrap;
+}
+
+th {
+  border-bottom: 2px solid $gray-200;
+}
+tr {
+  border-bottom: 1px solid $gray-200;
+}
+
+th, td {
+  padding: 0.2em;
+  vertical-align: text-top;
+}
+
+td:nth-child(1) {
+  font-weight: bold;
+}
+
+.landing-table {
+  th, tr {
+    border-bottom: 2px solid $gray-600;
+  }
+  td {
+    width: 33.33%;
+    padding: 16px 40px 16px 0;
+    &:nth-child(1){
+      font-weight: normal;
+    }
+    @include media-breakpoint-down(sm) {
+      font-size: 0.875rem;
+    }
+  }
+  tr:last-child {
+    border-bottom: none;
+  }
+  tbody td {
+    color: $gray-200;
+  }
+}
+
+
+.dblue {
+  color: $gray-600;
+}
+#overview-table {
+  td:nth-child(1){
+    width: 40%;
+  }
+  td:nth-child(2){
+    width: 30%;
+  }
+  tbody td {
+    padding: 2rem 0.75rem;
+  }
+  @include media-breakpoint-down(md) {
+    font-size: 0.875rem;
+    thead .h4 {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+#calculator-table {
+  width: 100%;
+  thead {
+    // border-bottom: 3px solid;
+    // border-image-slice: 1;
+    // border-width: 5px;
+    // border-image-source: linear-gradient(90deg, #B480FF -0.32%, #5F00E6 32.7%, #1AA4FF 61.53%, #19FF83 100.32%);
+    // -webkit-border-image: -webkit-gradient(90deg, #B480FF -0.32%, #5F00E6 32.7%, #1AA4FF 61.53%, #19FF83 100.32%);
+
+    // &::after{
+    //   content: url(../../img/graphics/table-border.svg);
+    // }
+  }
+  td {
+    padding: 1.5rem 0;
+    @include media-breakpoint-down(sm) {
+      font-size: $base-size;
+    }
+  }
+  tbody td {
+    padding: 2rem 0;
+  }
+  thead tr,
+  tbody tr {
+    border-bottom: 1px solid $gray-600;
+  }
+  .ratio {
+    font-size: 1rem;
+    display: block;
+    margin-top: -8px;
+    color: $gray-500;
+  }
+  @include media-breakpoint-down(md) {
+    table {
+      font-size: 0.875rem;
+    }
+    table .fs-5-5 {
+      font-size: 1rem !important;
+    }
+    table .fs-6 {
+      font-size: 1.125rem;
+    }
+    table td:first-child {
+      width: auto;
+    }
+  }
+}
